@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+interp create -safe safeInterp
+safeInterp invokehidden source /mnt/vars.config
+lassign [safeInterp eval {list $user $pass}] user pass
+set otp [lindex $argv 0]
+spawn openconnect --user=$user https://webvpn.skat.dk/DevOPS-ext
+expect "Password" {send "$pass\r"}
+expect "* OTP Password:*"
+expect "Password" {send "$otp\r"}
+interact
