@@ -7,6 +7,9 @@ function main(){
          exit
     }
     
+    #Launh site for installing FoxyProxy
+    start "https://www.google.com/search?q=FoxyProxy+Standard"
+    
     #creating vars.config with username and password
     if (!(Test-Path ".\ResetUserNamePassword.ps1")) {
         (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/nc-brj/dmr-proxy/master/ResetUserNamePassword.ps1", "$pwd\ResetUserNamePassword.ps1")
