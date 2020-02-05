@@ -1,3 +1,4 @@
+#Run "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/nc-brj/dmr-proxy/master/initialize.ps1'))" to launch
 function main(){
     #Test if docker is installed
     if (!( Test-Command -cmdname 'docker'))
