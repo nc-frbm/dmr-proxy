@@ -19,6 +19,7 @@ function main(){
     Pause
 
     Get-File-From-Github "start.bat"
+    Get-File-From-Github "vpn.ico"
     Get-File-From-Github "ShortcutCreate.ps1"
     Start-Process powershell $pwd\ShortcutCreate.ps1 -Verb runAs
 
