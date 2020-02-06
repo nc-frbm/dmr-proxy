@@ -8,25 +8,34 @@ function main(){
     }
     
     #Launh site for installing FoxyProxy
-    start "https://www.google.com/search?q=FoxyProxy+Standard"
+    Write-Host "Plase install Foxyproxy, and load config. FoxyProxy_chrome.fpx in Chrome, FoxyProxy_firefox.json in Firefox"
+    Start-Process "https://www.google.com/search?q=FoxyProxy+Standard"
+
+
+    Get-File-From-Github "FoxyProxy_chrome.fpx"
+    Get-File-From-Github "FoxyProxy_firefox.json"
     
+    Write-Host "Click enter when done"
+    Pause
+
     #creating vars.config with username and password
-    if (!(Test-Path ".\ResetUserNamePassword.ps1")) {
-        (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/nc-brj/dmr-proxy/master/ResetUserNamePassword.ps1", "$pwd\ResetUserNamePassword.ps1")
-    }
+    Get-File-From-Github "ResetUserNamePassword.ps1"
     #Launch password resetter
     & .\ResetUserNamePassword.ps1
 
     #creating start.ps1
-    if (!(Test-Path ".\start.ps1")) {
-        (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/nc-brj/dmr-proxy/master/start.ps1", "$pwd\start.ps1")
-    }
+    Get-File-From-Github "start.ps1"
     #Launch image
     & .\start.ps1
 }
 function Test-Command($cmdname)
 {
     return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
+}
+function Get-File-From-Github($filename) {
+    if (!(Test-Path ".\$filename")) {
+        (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/nc-brj/dmr-proxy/master/$filename", "$pwd\$filname")
+    }    
 }
 
 main
