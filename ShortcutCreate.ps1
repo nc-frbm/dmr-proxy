@@ -1,3 +1,6 @@
+#Requires -RunAsAdministrator
+param([String]$workDir=$pwd)
+
 $name = "DMR VPN proxy"
 
 $title    = 'Shortcut create for VPN/PROXY'
@@ -18,6 +21,6 @@ if($inputName){
 
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("C:\ProgramData\Microsoft\Windows\Start Menu\Programs\$name.lnk")
-$Shortcut.IconLocation = "$pwd\vpn.ico"
-$Shortcut.TargetPath = "$pwd\start.bat"
+$Shortcut.IconLocation = "$workDir\vpn.ico"
+$Shortcut.TargetPath = "$workDir\start.bat"
 $Shortcut.Save()
