@@ -18,6 +18,10 @@ function main(){
     Write-Host "Click enter when done"
     Pause
 
+    Get-File-From-Github "start.bat"
+    Get-File-From-Github "ShortcutCreate.ps1"
+    Start-Process powershell $pwd\ShortcutCreate.ps1 -Verb runAs
+
     #creating vars.config with username and password
     Get-File-From-Github "ResetUserNamePassword.ps1"
     #Launch password resetter
