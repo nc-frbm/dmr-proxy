@@ -8,7 +8,7 @@ function main(){
     }
     
     #Launh site for installing FoxyProxy
-    Write-Host "Plase install Foxyproxy, and load config through plugin: $pwd\FoxyProxy_chrome.fpx in Chrome, $pwd\FoxyProxy_firefox.json in Firefox"
+    Write-Host "Please install Foxyproxy (firefox/chrome plugin), and load config through plugin. $pwd\FoxyProxy_chrome.fpx in Chrome, $pwd\FoxyProxy_firefox.json in Firefox"
 
     Get-File-From-Github "FoxyProxy_chrome.fpx"
     Get-File-From-Github "FoxyProxy_firefox.json"
