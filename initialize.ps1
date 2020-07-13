@@ -21,6 +21,7 @@ function main(){
     Get-File-From-Github "Dockerfile"
     Get-File-From-Github "stop.bat"
     Get-File-From-Github "ShortcutCreate.ps1"
+    Get-File-From-Github "docker-compose.yml"
 
     Start-Process powershell "$pwd\ShortcutCreate.ps1 $pwd" -Verb runAs
 
