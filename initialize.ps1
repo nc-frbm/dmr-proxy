@@ -1,4 +1,4 @@
-#Run "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Mollnitz/dmr-proxy/master/initialize.ps1'))" to launch
+#Run "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/nc-brj/dmr-proxy/master/initialize.ps1'))" to launch
 function main(){
     #Test if docker is installed
     if (!( Test-Command -cmdname 'docker'))
@@ -68,7 +68,7 @@ function Replace-Standard-Port($filename, $port) {
 
 function Get-File-From-Github($filename) {
     if (!(Test-Path ".\$filename")) {
-        (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/Mollnitz/dmr-proxy/master/$filename", "$pwd\$filename")
+        (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/nc-brj/dmr-proxy/master/$filename", "$pwd\$filename")
     }    
 }
 
