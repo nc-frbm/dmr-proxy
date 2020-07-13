@@ -1,4 +1,4 @@
-#Run "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/nc-brj/dmr-proxy/master/initialize.ps1'))" to launch
+#Run "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Mollnitz/dmr-proxy/master/initialize.ps1'))" to launch
 function main(){
     #Test if docker is installed
     if (!( Test-Command -cmdname 'docker'))
@@ -18,6 +18,10 @@ function main(){
     Get-File-From-Github "start.bat"
     Get-File-From-Github "vpn.ico"
     Get-File-From-Github "ShortcutCreate.ps1"
+    Get-File-From-Github "Dockerfile"
+    Get-File-From-Github "stop.bat"
+    Get-File-From-Github "ShortcutCreate.ps1"
+
     Start-Process powershell "$pwd\ShortcutCreate.ps1 $pwd" -Verb runAs
 
     #creating vars.config with username and password
@@ -28,7 +32,7 @@ function main(){
     #creating start.ps1
     Get-File-From-Github "start.ps1"
     #Launch image
-    & .\start.ps1
+    & .\start.bat
 }
 function Test-Command($cmdname)
 {
@@ -36,7 +40,7 @@ function Test-Command($cmdname)
 }
 function Get-File-From-Github($filename) {
     if (!(Test-Path ".\$filename")) {
-        (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/nc-brj/dmr-proxy/master/$filename", "$pwd\$filename")
+        (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/Mollnitz/dmr-proxy/master/$filename", "$pwd\$filename")
     }    
 }
 
