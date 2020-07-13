@@ -1,0 +1,13 @@
+version: '3'
+services:
+    skat_proxy:
+        container_name: skat_proxy
+        ports: 
+            - "8888:8080"
+        cap_add:
+            - NET_ADMIN
+        privileged: true
+        tty: true
+        network_mode: "bridge"
+        build:
+            context: '.'
