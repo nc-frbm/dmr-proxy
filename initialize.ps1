@@ -7,9 +7,12 @@ function main(){
          exit
     }
 
+    #Docker compose description
+    Get-File-From-Github "docker-compose.yml"
+
+    #FoxyProxy policy files
     Get-File-From-Github "FoxyProxy_chrome.fpx"
     Get-File-From-Github "FoxyProxy_firefox.json"
-    Get-File-From-Github "docker-compose.yml"
     
     $stdPort = 8888
 
@@ -19,17 +22,23 @@ function main(){
     Write-Host "Click enter when done"
     Pause
     
+    #Start and stop bat files and icon, for shortcuts.
     Get-File-From-Github "start.bat"
+    Get-File-From-Github "stop.bat"
     Get-File-From-Github "vpn.ico"
     Get-File-From-Github "ShortcutCreate.ps1"
-    Get-File-From-Github "stop.bat"
 
     Start-Process powershell "$pwd\ShortcutCreate.ps1 $pwd" -Verb runAs
 
-    #creating vars.config with username and password
+    #variable file, for saving username and password -ADDED TO avoid UTF-8 Format bug.
+    Get-File-From-Github "vars.config"
+
+    #updating vars.config with username and password
     Get-File-From-Github "ResetUserNamePassword.ps1"
     #Launch password resetter
     & .\ResetUserNamePassword.ps1
+
+
 
     #Launch image
     .\start.bat
