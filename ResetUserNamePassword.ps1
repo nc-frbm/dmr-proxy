@@ -32,4 +32,4 @@ set user $user
 set pass "$pass"
 "@
 
-$fileContent | Out-File -Encoding utf8NoBOM .\vars.config
+$fileContent | Out-File -Encoding utf8 .\vars.config
