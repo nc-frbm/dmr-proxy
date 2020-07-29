@@ -23,7 +23,7 @@ if($userMatchFromVars.Matches.Groups.Count -ne 0){
     }
 } else {
     #If file is to be created
-    $user = Read-Host -Prompt "Creating vars.config - Input username (w-number)"
+    $user = Read-Host -Prompt "Creating vars.config - Input username (w-number in format w999999)"
 }
 $pass = [System.Net.NetworkCredential]::new("", (Read-Host -AsSecureString -Prompt "Enter password" )).Password
 
@@ -32,4 +32,4 @@ set user $user
 set pass "$pass"
 "@
 
-$fileContent | Out-File .\vars.config
+$fileContent | Out-File -Encoding utf8NoBOM .\vars.config
