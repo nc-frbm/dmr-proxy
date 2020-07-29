@@ -1,0 +1,14 @@
+version: '3'
+services:
+    skat_proxy:
+        image: ncbrj/dmr-proxy
+        container_name: skat_proxy
+        ports: 
+            - "8888:8080"
+        cap_add:
+            - NET_ADMIN
+        volumes:
+            - .\vars.config:/mnt/vars.config
+        privileged: true
+        tty: true
+        network_mode: "bridge"
