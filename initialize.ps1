@@ -41,7 +41,7 @@ function main(){
 
 
     #Launch image
-    .\start.bat
+    .\start.ps1
 }
 function Test-Command($cmdname)
 {
