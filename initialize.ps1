@@ -24,6 +24,7 @@ function main(){
     
     #Start and stop bat files and icon, for shortcuts.
     Get-File-From-Github "start.bat"
+    Get-File-From-Github "start.ps1"
     Get-File-From-Github "stop.bat"
     Get-File-From-Github "vpn.ico"
     Get-File-From-Github "ShortcutCreate.ps1"
