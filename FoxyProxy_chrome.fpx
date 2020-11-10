@@ -18,6 +18,7 @@
 			<manualconf host="127.0.0.1" port="8888" socksversion="5" isSocks="false"/>
 			<autoconf url="" reloadPac="false" loadNotification="true" errorNotification="true" autoReload="false" reloadFreqMins="60" disableOnBadPAC="true"/>
 			<matches>
+				<match enabled="true" name="*.toldsystemet.ccta.dk" isRegex="false" pattern="*.toldsystemet.ccta.dk" reload="true" autoReload="false" isBlackList="true" isMultiLine="false" fromSubscription="false" caseSensitive="false"/>
 				<match enabled="true" name="ccta domain" isRegex="false" pattern="*.ccta.dk" reload="true" autoReload="false" isBlackList="false" isMultiLine="false" fromSubscription="false" caseSensitive="false"/>
 			</matches>
 		</proxy>
