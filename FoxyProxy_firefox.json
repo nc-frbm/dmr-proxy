@@ -1,5 +1,5 @@
 {
-  "hq24gs1580897264560": {
+  "gyi861594631599889": {
     "type": 1,
     "color": "#66cc66",
     "title": "SKAT",
@@ -11,14 +11,22 @@
     "password": "",
     "whitePatterns": [
       {
-        "title": "SKAT",
+        "title": "all URLs",
         "pattern": "*.ccta.dk",
         "type": 1,
         "protocols": 1,
         "active": true
       }
     ],
-    "blackPatterns": [],
+    "blackPatterns": [
+      {
+        "title": "*.toldsystemet.ccta.dk",
+        "pattern": "*.toldsystemet.ccta.dk",
+        "type": 1,
+        "protocols": 1,
+        "active": true
+      }
+    ],
     "pacURL": "",
     "index": 9007199254740990
   },
@@ -27,7 +35,7 @@
     "active": false
   },
   "mode": "patterns",
-  "browserVersion": "72.0.2",
-  "foxyProxyVersion": "7.4.3",
+  "browserVersion": "82.0.3",
+  "foxyProxyVersion": "7.5.1",
   "foxyProxyEdition": "standard"
 }
