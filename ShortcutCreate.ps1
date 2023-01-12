@@ -1,7 +1,7 @@
 #Requires -RunAsAdministrator
 param([String]$workDir=$pwd)
 
-$name = "DMS VPN proxy"
+$name = "UFST VPN proxy"
 
 $title    = 'Shortcut create for VPN/PROXY'
 $question = 'Do you want to create a shortcut for easy start and stop of the VPN/PROXY?'
@@ -12,7 +12,7 @@ if ($decision -ne 0) {
     exit
 }
 
-$name = "DMS VPN Proxy"
+$name = "UFST VPN Proxy"
 
 $inputName = Read-Host -Prompt "Do you want to name the shortcut? Default is [$name]"
 if($inputName){
