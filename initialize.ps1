@@ -32,7 +32,13 @@ function main(){
     Start-Process powershell "$pwd\ShortcutCreate.ps1 $pwd" -Verb runAs
 
     #variable file, for saving username and password -ADDED TO avoid UTF-8 Format bug.
-    Create-Vars-Config
+    $varsTemplate = "vars.config.template"
+    if (!(Test-Path $varsTemplate)) {
+        Write-Host "Downloading $varsTemplate"
+        Get-File-From-Github $varsTemplate
+    }
+
+    Create-Vars-Config $varsTemplate
 
     #updating vars.config with username and password
     Get-File-From-Github "ResetUserNamePassword.ps1"
@@ -59,8 +65,9 @@ function Get-File-From-Github($filename) {
     }    
 }
 
-function Create-Vars-Config() {
-    Copy-Item ".\vars.config.template" "vars.config"
+function Create-Vars-Config($varsTemplate) {
+    Write-Host "Creating config file"
+    Copy-Item "$pwd\$varsTemplate" "$pwd\vars.config"
 }
 
 function Port-Check($port) {
