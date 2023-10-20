@@ -32,7 +32,7 @@ function main(){
     Start-Process powershell "$pwd\ShortcutCreate.ps1 $pwd" -Verb runAs
 
     #variable file, for saving username and password -ADDED TO avoid UTF-8 Format bug.
-    Get-File-From-Github "vars.config"
+    Create-Vars-Config
 
     #updating vars.config with username and password
     Get-File-From-Github "ResetUserNamePassword.ps1"
@@ -57,6 +57,10 @@ function Get-File-From-Github($filename) {
     if (!(Test-Path ".\$filename")) {
         (New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/nc-brj/dmr-proxy/master/$filename", "$pwd\$filename")
     }    
+}
+
+function Create-Vars-Config() {
+    Copy-Item ".\vars.config.template" "vars.config"
 }
 
 function Port-Check($port) {
